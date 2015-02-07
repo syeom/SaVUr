@@ -1,11 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope,$state,  $ionicModal, $timeout, $ionicSlideBoxDelegate) {
   // Form data for the login modal
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('templates/profile.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -19,6 +19,12 @@ angular.module('starter.controllers', [])
   // Open the login modal
   $scope.profile = function() {
     $scope.modal.show();
+  };
+
+  $scope.edit = function(){
+     $scope.modal.hide();
+    $state.go('app.intro');
+    $ionicSlideBoxDelegate.slide(2);
   };
 
   // Perform the login action when the user submits the login form
@@ -55,6 +61,25 @@ angular.module('starter.controllers', [])
   }
 
 })
+.controller('HomeCtrl',function($scope, $ionicPopup, $timeout) {
+
+ // A confirm dialog
+ $scope.showConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Alert',
+     template: 'Are you sure you want to alert the Public Safety? A message will be sent to the Public Safety with your profile information and your GPS location'
+   });
+   confirmPopup.then(function(res) {
+     if(res) {
+       console.log('You are sure');
+     } else {
+       console.log('You are not sure');
+     }
+   });
+ };
+
+
+});
 
 ;
 
