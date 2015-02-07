@@ -1,9 +1,10 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-stable">
+    <!--
       <ion-nav-back-button>
       </ion-nav-back-button>
-
+    -->
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
@@ -18,17 +19,17 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item nav-clear menu-close ng-click="login()">
-          Login
+        <ion-item nav-clear menu-close href="#/app/home">
+          Home
+        </ion-item>
+        <ion-item nav-clear menu-close ng-click="profile()">
+          Profile
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/search">
-          Search
+          Hmm
         </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+        <ion-item nav-clear menu-close href="#/app/intro">
+          Intro
         </ion-item>
       </ion-list>
     </ion-content>
