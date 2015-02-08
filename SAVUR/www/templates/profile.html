@@ -1,24 +1,22 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Profile</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeProfile()">Close</button>
-    </div>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="edit()">Edit</button>
-    </div>
-
-  </ion-header-bar>
+<ion-view view-title="Home">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+    <ion-nav-buttons side="right"> 
+       <button class="button button-clear" ng-click="edit()">Edit</button>
+  </ion-nav-buttons>
   <ion-content>
-    <div class="card">
+
+  <div class="card">
       <div class="item item-text-wrap">
-        <h3> My Profile </h3>
+        <h3> My Profile</h3>
         <p>
-        Name: malesuada nulla<br>
-        VUID: 1234567<br>
-        Dorm: Stanford 000<br>
+        Name: {{profileName}}<br>
+        VUID: {{profileVUID}}<br>
+        Dorm: {{profileDorm}}<br>
       </p>
       </div>
    </div>
-  </ion-content>
-</ion-modal-view>
+</ion-content>
+</ion-view>
+

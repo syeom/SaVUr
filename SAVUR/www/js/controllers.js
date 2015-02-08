@@ -1,42 +1,25 @@
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope,$state,  $ionicModal, $timeout, $ionicSlideBoxDelegate) {
-  // Form data for the login modal
-  $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/profile.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeProfile = function() {
-    $scope.modal.hide();
+  $scope.register = function(user){
+    profile = angular.copy(user);
+    a = JSON.stringify(profile);
+    window.localStorage['profileName'] = profile['name']
+    window.localStorage['profileVUID'] = profile['vuid']
+    window.localStorage['profileDorm'] = profile['dorm']
+    window.localStorage.setItem("persistent", "true");
+    $state.go('app.home');
   };
 
-  // Open the login modal
-  $scope.profile = function() {
-    $scope.modal.show();
-  };
-
+ 
   $scope.edit = function(){
-     $scope.modal.hide();
     $state.go('app.intro');
-    $ionicSlideBoxDelegate.slide(2);
+    $ionicSlideBoxDelegate.slide(2); // doesn't work.. need to find a way to redirect to slide 3
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.register = function() {
-    console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
 
@@ -55,11 +38,6 @@ angular.module('starter.controllers', [])
   $scope.slideChanged = function(index) {
     $scope.slideIndex = index;
   };
-  $scope.register = function(){
-   $state.go('app.home');
-    // cache the form inputs
-  }
-
 })
 .controller('HomeCtrl',function($scope, $ionicPopup, $timeout) {
 
@@ -77,8 +55,12 @@ angular.module('starter.controllers', [])
      }
    });
  };
+})
 
-
+.controller('ProfileCtrl', function($scope){
+      $scope.profileName = window.localStorage['profileName'] ;
+    $scope. profileVUID =  window.localStorage['profileVUID'] ;
+    $scope. profileDorm =  window.localStorage['profileDorm'] ;
 });
 
 ;

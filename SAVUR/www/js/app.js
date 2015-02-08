@@ -67,7 +67,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
- 
+
+  .state('app.profile', {
+    url: "/profile",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/profile.html",
+        controller: 'ProfileCtrl'
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/intro');
+  if (window.localStorage.getItem('persistent') == 'true' )
+    $urlRouterProvider.otherwise('/app/home');
+  else 
+    $urlRouterProvider.otherwise('/app/intro');
 });
+
+
+

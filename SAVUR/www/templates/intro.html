@@ -1,12 +1,12 @@
 <ion-view view-title="INTRO">
     <ion-nav-buttons side="left">
         <button class="button button-positive button-clear no-animation" ng-click="previous()" ng-show="slideIndex > 0">
-            <
+            <i class="ion-chevron-left"></i>
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right"> 
         <button class="button button-positive button-clear no-animation" ng-click="next()" ng-show="slideIndex != 2">
-            >
+            <i class="ion-chevron-right"></i>
         </button>
 
     </ion-nav-buttons>
@@ -25,28 +25,30 @@
         </ion-slide>
 
         <ion-slide>
-            <div class="bar bar-subheader">
+
               <h2 class="title">Profile</h2>
-            </div>
-            <form ng-submit="register()">
+            <br><br>
+            <form ng-submit="register(user)" method="post">
                 <label class="item item-input">
                     <span class="input-label">Name</span>
-                    <input type="text">
+                    <input type="text"  ng-model="user.name" required>
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="number">
+                  <input type="number"  ng-model="user.vuid" required>
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Dorm/Address</span>
-                  <input type="text">
+                  <input type="text"  ng-model="user.dorm" required>
                 </label>
                  <label class="item">
                      <button class="button button-block button-positive" type="submit">start</button>
                 </label>
              </form>
+
+
         </ion-slide>
 
     </ion-slide-box>
