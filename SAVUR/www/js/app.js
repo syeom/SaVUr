@@ -77,6 +77,36 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  
+    .state('app.talk', {
+    url: "/talk",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/talk.html",
+        controller: 'TalkCtrl'
+      }
+    }
+  })
+  
+    .state('app.medicalHelp', {
+    url: "/medicalHelp",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/medicalHelp.html",
+        controller: 'MedicalHelpCtrl'
+      }
+    }
+  })
+  
+    .state('app.Information', {
+    url: "/Information",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/information.html",
+        controller: 'InformationCtrl'
+      }
+    }
+  })
 
   // if none of the above states are matched, use this as the fallback
   if (window.localStorage.getItem('persistent') == 'true' )
