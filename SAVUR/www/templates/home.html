@@ -1,11 +1,34 @@
-<ion-view view-title="Home">
+<ion-view view-title="SaVUr">
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
   <ion-content>
 	<div class="list">
-
-	    <a class="item item-thumbnail-left" href="#" ng-click="showConfirm()">
+		<button class="button button-block button-stable" ui-sref="app.reportAssault">
+				Report a Sexual Assault
+		</button>
+		<form action="#/talk">
+			<button class="button button-block button-stable" ui-sref="app.talk">
+				Talk to Someone
+			</button>
+		</form>
+		<form action="#/helpMe">
+			<button class="button button-block button-assertive" ng-click="showConfirm()">
+				Help Me!
+			</button>
+		</form>
+		<form action="#/getMedicalHelp">
+			<button class="button button-block button-stable" ui-sref="app.medicalHelp">
+				Get Medical Help
+			</button>
+		</form>
+		<form action="#/getInfo">
+			<button class="button button-block button-stable" ui-sref="app.Information">
+				Get Information
+			</button>
+		</form>
+	
+	   <!--  <a class="item item-thumbnail-left" href="#" ng-click="showConfirm()">
 	      <img src="cover.jpg">
 	      <h2>Help Me</h2> <i class="ion-android-favorite"></i>
 	      <p>Alert the Public Safety</p>
@@ -24,7 +47,7 @@
 	      <img src="cover.jpg">
 	      <h2>Lorem ipsum dolor sit amet.</h2>
 	      <p>Lorem ipsum dolor sit</p>
-	    </a>
+	    </a> -->
 
 	</div>
   </ion-content>
