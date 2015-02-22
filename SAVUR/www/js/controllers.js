@@ -39,7 +39,6 @@ angular.module('starter.controllers', [])
     $scope.slideIndex = index;
   };
 })
-
 .controller('HomeCtrl',function($scope, $ionicPopup, $timeout) {
 
  // A confirm dialog
@@ -55,29 +54,13 @@ angular.module('starter.controllers', [])
        console.log('You are not sure');
      }
    });
- }; 
-})
-
-.controller('ReportAssaultCtrl',function($scope) {
-	
-})
-
-.controller('TalkCtrl',function($scope) {
-	
-})
-
-.controller('MedicalHelpCtrl',function($scope) {
-	
-})
-
-.controller('InformationCtrl',function($scope) {
-	
+ };
 })
 
 .controller('ProfileCtrl', function($scope){
       $scope.profileName = window.localStorage['profileName'] ;
-      $scope.profileVUID =  window.localStorage['profileVUID'] ;
-      $scope.profileDorm =  window.localStorage['profileDorm'] ;
+    $scope. profileVUID =  window.localStorage['profileVUID'] ;
+    $scope. profileDorm =  window.localStorage['profileDorm'] ;
 });
 
 ;
