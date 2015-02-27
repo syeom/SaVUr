@@ -18,11 +18,7 @@ angular.module('starter.controllers', [])
     $state.go('app.intro');
     $ionicSlideBoxDelegate.slide(2); // doesn't work.. need to find a way to redirect to slide 3
   };
-
-
 })
-
-
 
 .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
  
@@ -72,6 +68,14 @@ angular.module('starter.controllers', [])
 
 .controller('InformationCtrl',function($scope) {
 	
+})
+
+.controller('BeforeYouGoCtrl',function($scope, $ionicSlideBoxDelegate) {
+	  
+})
+
+.controller('GettingThereCtrl',function($scope, $ionicSlideBoxDelegate) {
+	  
 })
 
 .controller('ProfileCtrl', function($scope){

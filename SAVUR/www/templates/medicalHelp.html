@@ -1,8 +1,15 @@
 <ion-view view-title="Get Medical Help">
-  <ion-nav-buttons side="left">
-    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-  </ion-nav-buttons>
-  <ion-content>
-	
-  </ion-content>
+	<ion-nav-bar>
+		<ion-nav-back-button class="button icon-left ion-chevron-left button-clear button-dark">
+			<i></i> Back
+		</ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content>
+		<button class="button button-block button-stable" ui-sref="app.GettingThere">
+			Getting There
+		</button>
+		<button class="button button-block button-stable" ui-sref="app.BeforeYouGo">
+			Before You Go
+		</button>
+	</ion-content>
 </ion-view>
