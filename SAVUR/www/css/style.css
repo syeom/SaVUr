@@ -36,3 +36,62 @@ body {
 .button.ng-hide{
   display:none;
 }
+
+.menu{
+  background-color: #202020;
+}
+.item-complex .item-content, .item-radio .item-conte{
+  background-color: #202020;
+  color:#C8C8C8;
+  text-align: center;
+}
+.menu .item.active, .menu  .item.activated,.menu  .item-complex.active .item-content, .menu .item-complex.activated .item-content, .menu .item .item-content.active, .menu .item .item-content.activated {
+  border-color: #4B92DB;
+  color:#202020;
+  background-color: #C8C8C8; }
+
+.menu .item{
+  margin-left: 20px;
+  border-width:0;
+}
+.bar.bar-stable{
+  background-color: #003366;
+  color: #C8C8C8;
+}
+.bar.bar-stable .title{
+  color:#C8C8C8;
+}
+.bar-stable .button.button-clear{
+  color:#C8C8C8;
+}
+
+/*imgs include v6.jpg v10.jpg */
+.home{
+  height: 100%;
+  background: url("../img/v1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #555;
+}
+.homewrapper{
+  position: fixed;
+  top:-100%;
+  height: 300%;
+  width: 200%;
+  background-color: black;
+  opacity: .5;
+}
+
+.card{
+  margin: 0px;
+  border: 0px solid #fff;
+  text-align: center;
+  background-color: transparent;
+  height: 100px;
+}
+.card .item {
+  color:#fff;
+  background-color: transparent;
+}
+.card .icon{
+  font-size: 25px;
+}

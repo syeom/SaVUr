@@ -52,6 +52,11 @@ angular.module('starter.controllers', [])
      }
    });
  }; 
+
+  ;
+
+ $scope.homebg = "img/v"+Math.floor((Math.random() * 5) + 1)+".jpg";
+
 })
 
 .controller('ReportAssaultCtrl',function($scope) {
