@@ -91,6 +91,10 @@ angular.module('starter.controllers', [])
     
 })
 
+.controller('SexualAssaultPamphletCtrl',function($scope, $ionicSlideBoxDelegate) {
+    
+})
+
 .controller('ProfileCtrl', function($scope){
       $scope.profileName = window.localStorage['profileName'] ;
       $scope.profileVUID =  window.localStorage['profileVUID'] ;
