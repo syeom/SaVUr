@@ -83,6 +83,14 @@ angular.module('starter.controllers', [])
 	  
 })
 
+.controller('TalkOnCampusCtrl',function($scope, $ionicSlideBoxDelegate) {
+    
+})
+
+.controller('TalkOffCampusCtrl',function($scope, $ionicSlideBoxDelegate) {
+    
+})
+
 .controller('ProfileCtrl', function($scope){
       $scope.profileName = window.localStorage['profileName'] ;
       $scope.profileVUID =  window.localStorage['profileVUID'] ;

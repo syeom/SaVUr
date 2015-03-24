@@ -138,6 +138,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.talkOnCampus', {
+    url: "/talkOnCampus",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/talkOnCampus.html",
+        controller: 'TalkOnCampusCtrl'
+      }
+    }
+  })
+
+  .state('app.talkOffCampus', {
+    url: "/talkOffCampus",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/talkOffCampus.html",
+        controller: 'TalkOffCampusCtrl'
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
   if (window.localStorage.getItem('persistent') == 'true' )
     $urlRouterProvider.otherwise('/app/home');
