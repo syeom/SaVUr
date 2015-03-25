@@ -36,7 +36,13 @@ body {
 .button.ng-hide{
   display:none;
 }
+#menulogo{
+  width: 260px;
+  position: fixed;
+  bottom: 100px;
+  left:6px;
 
+}
 .menu{
   background-color: #202020;
 }
@@ -51,8 +57,9 @@ body {
   background-color: #C8C8C8; }
 
 .menu .item{
-  margin-left: 20px;
-  border-width:0;
+  margin:0;
+  border-width: 0px;
+  border-bottom: solid 1px #C8C8C8;
 }
 .bar.bar-stable{
   background-color: #003366;
@@ -79,7 +86,7 @@ body {
   height: 300%;
   width: 200%;
   background-color: black;
-  opacity: .5;
+  opacity: .6;
 }
 
 .card{
@@ -88,6 +95,7 @@ body {
   text-align: center;
   background-color: transparent;
   height: 100px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .card .item {
   color:#fff;
