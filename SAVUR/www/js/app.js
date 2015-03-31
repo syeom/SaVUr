@@ -168,6 +168,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+    .state('app.Lucas', {
+    url: "/Lucas",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/Lucas.html"
+      }
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
   if (window.localStorage.getItem('persistent') == 'true' )
     $urlRouterProvider.otherwise('/app/home');

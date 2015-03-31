@@ -5,7 +5,7 @@
         </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right"> 
-        <button class="button button-positive button-clear no-animation" ng-click="next()" ng-show="slideIndex != 2">
+        <button class="button button-positive button-clear no-animation" ng-click="next()" ng-show="slideIndex != 1">
             <i class="ion-chevron-right"></i>
         </button>
 
@@ -16,13 +16,10 @@
             <h3>Welcome to SaVUr</h3>
             <div id="logo"> <img src="img/icon.png" width="150px">
             </div>
-            <p>Sexual Assault Villanova University Resources</p>
-            <p> Maecenas rutrum, est eu cursus blandit, elit justo convallis lorem, et suscipit magna arcu nec tellus. Pellentesque vulputate nisl vitae felis interdum, et lac</p>
+            <p><b>Sexual Assault Villanova University Resources</b></p>
+            <p>In the moments that matter, this app meets students where they are and could be the difference for someone who needs support.</p>
+             <p>No matter what a student chooses to do or not do, it is important that they are able to make an informed choice.</p>
          </ion-slide>
-
-        <ion-slide>
-            <p>Praesent ac malesuada nulla. Sed cursus in ipsum elementum lobortis. Sed sodales dolor sit amet tellus aliquet, vel sodales elit dictum. Mauris scelerisque cursus lorem, vitae consectetur diam. Fusce tortor ante, vestibulum ac imperdiet nec, tristique nec nisi. Nunc feugiat erat eget eros rhoncus vehicula. Vestibulum tortor lectus, vulputate et turpis vel, rutrum dignissim velit. Sed sollicitudin dignissim ligula quis efficitur. In dui mi, rhoncus sit amet risus sit amet, finibus posuere mauris. Integer mollis suscipit lectus. Nunc lacus libero, semper ac tristique eu, mollis non arcu. Donec vel pharetra felis. Suspendisse nec lobortis ex. Aliquam erat volutpat.</p>
-        </ion-slide>
 
         <ion-slide>
 
@@ -36,17 +33,19 @@
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="number"  ng-model="user.vuid" required>
+                  <input type="text"  ng-model="user.vuid" required>
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Dorm/Address</span>
                   <input type="text"  ng-model="user.dorm" required>
                 </label>
-
                  <label class="item">
-                     <button class="button button-block button-positive" type="submit">start</button>
-                </label>
+                     <button class="button button-block button-positive" type="submit">Start</button>
+                  </label>
+                   <a href="#" class="item" ui-sref="app.home">
+                          <button class="button button-clear button-positive">Be Anonymous</button>
+                  </a>
              </form>
 
 
