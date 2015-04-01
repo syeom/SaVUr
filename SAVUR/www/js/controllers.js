@@ -59,32 +59,33 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ReportAssaultCtrl',function($scope, $cordovaEmailComposer) {
+.controller('ReportAssaultCtrl',function($scope) {
 
-  $cordovaEmailComposer.isAvailable().then(function() {
-     // is available
-   }, function () {
-     // not available
-   });
+  $scope.test = "abc";
 
-    var email = {
-      to: 'syeom@villanova.edu',
-      cc: '',
-      bcc: [''],
-      attachments: [''
-       // 'file://img/logo.png',
-      //  'res://icon.png',
-      //  'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
-      //  'file://README.pdf'
-      ],
-      subject: 'savur test',
-      body: 'How are you? Nice greetings from Leipzig',
-      isHtml: true
-    };
+  $scope.sendtext = function(){
+         var number = document.getElementById('numberTxt').value;
+        var message = document.getElementById('messageTxt').value;
+        alert(number);
+        alert(message);
 
-   $cordovaEmailComposer.open(email).then(null, function () {
-     // user cancelled email
-   });
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+  }
+
+	
+
+
 
 })
 
