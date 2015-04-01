@@ -89,7 +89,7 @@ body {
   opacity: .6;
 }
 
-.card{
+.homeCard .card{
   margin: 0px;
   border: 0px solid #fff;
   text-align: center;
@@ -97,14 +97,18 @@ body {
   height: 100px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.card .item {
+.homeCard .item {
   color:#fff;
   background-color: transparent;
 }
-.card .icon{
+.homeCard .icon{
   font-size: 25px;
 }
 /*Used in talk.html for the scroll view*/
 .scroll{
   height:100%;
+ }
+/*Also used in talk.html to center divider*/
+ .dividerCenter{
+    text-align: center;
  }
