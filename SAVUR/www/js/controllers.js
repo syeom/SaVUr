@@ -1,4 +1,6 @@
 
+var PublicSafetyEmail = 'syeom@villanova.edu';
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope,$state,  $ionicModal, $timeout, $ionicSlideBoxDelegate) {
@@ -71,16 +73,16 @@ angular.module('starter.controllers', [])
             data: {
               'key': 'SSCZCrdD5D9q4IKd4P7b1g',
               'message': {
-                'from_email': 'SavurUser@villanova.edu',
+                'from_email': 'SAVUR@villanova.edu',
                 'to': [
                     {
-                      'email': 'syeom@villanova.edu',
+                      'email': PublicSafetyEmail,
                       'type': 'to'
                     }
                   ],
                 'autotext': 'true',
                 'subject': 'SaVUr Emergency Alert!! ',
-                'html': '<body><h1> Name: '+ profileName + '</h1><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a></body>'
+                'html': '<body><h1> Name: '+ profileName + '</h1><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a><br><p> Please note that no phone number is provided. Either we can ask users for # or Officers has to look up the number using novaid</p></body>'
               }
             }
            }).done(function(response) {
