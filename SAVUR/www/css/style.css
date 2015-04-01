@@ -104,3 +104,7 @@ body {
 .card .icon{
   font-size: 25px;
 }
+/*Used in talk.html for the scroll view*/
+.scroll{
+  height:100%;
+ }
