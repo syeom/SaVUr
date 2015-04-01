@@ -1,0 +1,35 @@
+<ion-view view-title="">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+        <ion-slide>
+
+              <h2 class="title">Profile</h2>
+            <br><br>
+            <form ng-submit="register(user)" method="post">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text"  ng-model="user.name" required>
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">VU-ID</span>
+                  <input type="text"  ng-model="user.vuid" required>
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">Dorm/Address</span>
+                  <input type="text"  ng-model="user.dorm" required>
+                </label>
+                 <label class="item">
+                     <button class="button button-block button-positive" type="submit">Save</button>
+                  </label>
+                   <a href="#" class="item" ui-sref="app.home">
+                          <button class="button button-clear button-positive">Be Anonymous</button>
+                  </a>
+             </form>
+        </ion-slide>
+</ion-view>
+
+
+

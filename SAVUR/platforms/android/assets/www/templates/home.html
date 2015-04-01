@@ -1,0 +1,41 @@
+<ion-view view-title="SAVUR">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+  <ion-content class="home" ng-style="{'background-image': 'url(' + homebg + ')'}" >
+    <div class="homewrapper"></div>
+    <br>
+    <div class="card">
+     <a href="#" class="item" ui-sref="app.reportAssault">
+          <i class="icon ion-speakerphone"></i><br>
+          Report a Sexual Assault
+        </a>
+    </div>
+    <div class="card">
+      <a href="#" class="item" ui-sref="app.talk">
+        <i class="icon ion-ios7-telephone"></i><br>
+        <div>Talk to Someone</div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="#" class="item" ng-click="showConfirm()">
+        <i style="" class="icon ion-alert"></i><br>
+      Alert Public Safety
+      </a>
+    </div>
+    <div class="card">
+      <a href="#" class="item" ui-sref="app.medicalHelp">
+        <i class="icon ion-medkit"></i><br>
+      Get Medical Help
+      </a>
+    </div>
+    <div class="card">
+      <a href="#" class="item" ui-sref="app.Information">
+        <i class="icon ion-information-circled"></i><br>
+        Campus Resources
+      </a>
+    </div>
+    </div>
+	</div>
+  </ion-content>
+</ion-view>
