@@ -38,6 +38,24 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl',function($scope, $ionicPopup, $timeout) {
 
+  
+  profileName = window.localStorage['profileName'] ;
+  profileVUID =  window.localStorage['profileVUID'] ;
+  profileDorm =  window.localStorage['profileDorm'] ;
+  if (profileName == null){
+    profileName = 'anonymous';
+  }
+  if (profileVUID == null){
+    profileVUID = 'unknown';
+  }
+  if (profileDorm == null){
+    profileDorm = 'unknown';
+  } 
+  // this has to be dynamic
+  GPSlang = 40.035110;
+  GPSlong = -75.337355;
+
+
  // A confirm dialog
  $scope.showConfirm = function() {
    var confirmPopup = $ionicPopup.confirm({
@@ -46,7 +64,33 @@ angular.module('starter.controllers', [])
    });
    confirmPopup.then(function(res) {
      if(res) {
-       console.log('You are sure');
+
+           $.ajax({
+            type: "POST",
+            url: "https://mandrillapp.com/api/1.0/messages/send.json",
+            data: {
+              'key': 'SSCZCrdD5D9q4IKd4P7b1g',
+              'message': {
+                'from_email': 'SavurUser@villanova.edu',
+                'to': [
+                    {
+                      'email': 'syeom@villanova.edu',
+                      'type': 'to'
+                    }
+                  ],
+                'autotext': 'true',
+                'subject': 'SaVUr Emergency Alert!! ',
+                'html': '<body><h1> Name: '+ profileName + '</h1><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a></body>'
+              }
+            }
+           }).done(function(response) {
+            alert("Public Safety has been alerted. They will contact you very shortly");
+             console.log(response); 
+           });
+
+
+
+
      } else {
        console.log('You are not sure');
      }
@@ -60,31 +104,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ReportAssaultCtrl',function($scope) {
-
-  $scope.test = "abc";
-
-  $scope.sendtext = function(){
-         var number = document.getElementById('numberTxt').value;
-        var message = document.getElementById('messageTxt').value;
-        alert(number);
-        alert(message);
-
-        //CONFIGURATION
-        var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(number, message, options, success, error);
-  }
-
-	
-
 
 
 })
