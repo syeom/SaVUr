@@ -86,7 +86,14 @@ angular.module('starter.controllers', [])
               }
             }
            }).done(function(response) {
-            alert("Public Safety has been alerted. They will contact you very shortly");
+            
+               var alertPopup = $ionicPopup.alert({
+                 title: 'SAVUR',
+                 template: 'Public Safety has been alerted. They will contact you very shortly'
+               });
+               alertPopup.then(function(res) {
+               });
+             
              console.log(response); 
            });
 

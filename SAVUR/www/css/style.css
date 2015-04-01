@@ -41,7 +41,23 @@ body {
   position: fixed;
   bottom: 100px;
   left:6px;
-
+}
+#menuappname{
+  color: #C8C8C8;
+  position: fixed;
+  width: 275px;
+  bottom: 20px;
+  text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-size: 16px;
+  font-weight: bold;
+}
+#menubottomline{
+  background-color: #003366;
+  position: fixed;
+  width: 275px;
+  bottom: 0;
+  height: 25px;
 }
 .menu{
   background-color: #202020;
@@ -50,11 +66,14 @@ body {
   background-color: #202020;
   color:#C8C8C8;
   text-align: center;
+
 }
 .menu .item.active, .menu  .item.activated,.menu  .item-complex.active .item-content, .menu .item-complex.activated .item-content, .menu .item .item-content.active, .menu .item .item-content.activated {
   border-color: #4B92DB;
   color:#202020;
-  background-color: #C8C8C8; }
+  background-color: #C8C8C8; 
+
+}
 
 .menu .item{
   margin:0;
