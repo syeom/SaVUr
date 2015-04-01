@@ -7,7 +7,26 @@
 
           <h2 class="title"></h2>
             <br><br>
-            <form ng-submit="register(user)" method="post">
+
+             <ion-toggle ng-model="showanony.checked"
+                    ng-change="AnonyChange()">
+              Be Anonymous
+            </ion-toggle>
+
+            <div class="card" ng-show="showprofile">
+              <div class="item item-text-wrap">
+                <h3> My Profile</h3>
+                <p>
+                Name: {{profileName}}<br>
+                Phone: {{profilePhone}}<br>
+                VUID: {{profileVUID}}<br>
+                Dorm: {{profileDorm}}<br>
+              </p>
+              </div>
+              <button class="button button-block button-positive" ng-click="goedit()">Edit</button>
+            </div>
+
+            <form ng-submit="register(user)" method="post" ng-show="showedit">
                 <label class="item item-input">
                     <span class="input-label">Name</span>
                     <input type="text"  ng-model="user.name" required>
@@ -15,19 +34,23 @@
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="text"  ng-model="user.vuid" required>
+                  <input type="number"  ng-model="user.vuid" required>
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">Phone Number</span>
+                  <input type="number"  ng-model="user.phone" required>
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Dorm/Address</span>
                   <input type="text"  ng-model="user.dorm" required>
                 </label>
+
                  <label class="item">
                      <button class="button button-block button-positive" type="submit">Save</button>
                   </label>
-                   <a href="#" class="item" ui-sref="app.home">
-                          <button class="button button-clear button-positive">Be Anonymous</button>
-                  </a>
+                  <button class="button button-block button-positive" ng-click="cancel()">Cancel</button>
              </form>
         </ion-scroll>
       </ion-content>

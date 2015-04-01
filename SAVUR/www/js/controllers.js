@@ -10,16 +10,13 @@ angular.module('starter.controllers', [])
     a = JSON.stringify(profile);
     window.localStorage['profileName'] = profile['name']
     window.localStorage['profileVUID'] = profile['vuid']
+    window.localStorage['profilePhone'] = profile['phone']
     window.localStorage['profileDorm'] = profile['dorm']
     window.localStorage.setItem("persistent", "true");
     $state.go('app.home');
   };
 
  
-  $scope.edit = function(){
-    $state.go('app.intro');
-    $ionicSlideBoxDelegate.slide(2); // doesn't work.. need to find a way to redirect to slide 3
-  };
 })
 
 .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
@@ -43,6 +40,7 @@ angular.module('starter.controllers', [])
   
   profileName = window.localStorage['profileName'] ;
   profileVUID =  window.localStorage['profileVUID'] ;
+  profilePhone =window.localStorage['profilePhone'] ;
   profileDorm =  window.localStorage['profileDorm'] ;
   if (profileName == null){
     profileName = 'anonymous';
@@ -52,7 +50,11 @@ angular.module('starter.controllers', [])
   }
   if (profileDorm == null){
     profileDorm = 'unknown';
+  }
+  if (profilePhone == null){
+    profilePhone = 'unknown';
   } 
+
   // this has to be dynamic
   GPSlang = 40.035110;
   GPSlong = -75.337355;
@@ -82,7 +84,7 @@ angular.module('starter.controllers', [])
                   ],
                 'autotext': 'true',
                 'subject': 'SaVUr Emergency Alert!! ',
-                'html': '<body><h1> Name: '+ profileName + '</h1><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a><br><p> Please note that no phone number is provided. Either we can ask users for # or Officers has to look up the number using novaid</p></body>'
+                'html': '<body><h1> Name: '+ profileName + '</h1><h2> Phone Number: '+ profilePhone + '</h2><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a><br><p> Please note that no phone number is provided. Either we can ask users for # or Officers has to look up the number using novaid</p></body>'
               }
             }
            }).done(function(response) {
@@ -150,9 +152,80 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ProfileCtrl', function($scope){
-      $scope.profileName = window.localStorage['profileName'] ;
-      $scope.profileVUID =  window.localStorage['profileVUID'] ;
-      $scope.profileDorm =  window.localStorage['profileDorm'] ;
+
+  if (window.localStorage['anonymous'] == null){
+    window.localStorage['anonymous'] = "false";
+    $scope.showedit = false;
+    $scope.showprofile = true;
+    anonytoggle = false;
+  }
+  else if (window.localStorage['anonymous'] == "true"){
+    $scope.showedit = false;
+    $scope.showprofile = false;
+    anonytoggle = true;
+  }
+  else{
+    $scope.showedit = false;
+    $scope.showprofile = true;
+    anonytoggle = false;
+  }
+
+  $scope.profileName = window.localStorage['profileName'] ;
+  $scope.profileVUID =  window.localStorage['profileVUID'] ;
+  $scope.profilePhone = window.localStorage['profilePhone'] ;
+  $scope.profileDorm =  window.localStorage['profileDorm'] ;
+
+  $scope.goedit = function(){
+    $scope.showedit = true;
+    $scope.showprofile = false;
+  }
+  $scope.cancel = function(){
+    $scope.showedit = false;
+    $scope.showprofile = true;
+  }
+  $scope.profilesave = function(){
+    $scope.showedit = false;
+    $scope.showprofile = true;
+  }
+
+  $scope.AnonyChange = function() {
+    if ($scope.showanony.checked){
+      console.log("user wants to be anonymous");
+      window.localStorage['anonymous'] = "true" ;
+
+
+      $scope.showedit = false;
+      $scope.showprofile = false;
+
+      // move varialbes stored
+        window.localStorage['profileName2'] = window.localStorage['profileName'] ;
+        window.localStorage['profileVUID2'] =  window.localStorage['profileVUID'] ;
+        window.localStorage['profilePhone2'] = window.localStorage['profilePhone'] ;
+        window.localStorage['profileDorm2']  =  window.localStorage['profileDorm'] ;
+
+        delete window.localStorage["profileName"]
+        delete window.localStorage["profileVUID"]
+        delete window.localStorage["profilePhone"]
+        delete window.localStorage["profileDorm"]
+
+    }
+    else{
+      console.log("user says it's okay to show profile");
+      window.localStorage['anonymous'] = "false" ;
+      $scope.showedit = false;
+      $scope.showprofile = true;
+      // transfer back the original values
+        window.localStorage['profileName'] = window.localStorage['profileName2'] ;
+        window.localStorage['profileVUID'] =  window.localStorage['profileVUID2'] ;
+        window.localStorage['profilePhone'] = window.localStorage['profilePhone2'] ;
+        window.localStorage['profileDorm']  =  window.localStorage['profileDorm2'] ;
+
+    }
+  };
+  
+  
+  $scope.showanony = { checked: anonytoggle };
+  console.log("username: "+window.localStorage['profileName'] + " userVUID : "+ window.localStorage['profileVUID'] + " user phone: "+window.localStorage['profilePhone']+ " Dorm: "+ window.localStorage['profileDorm'] + " anonymousboolean: "+window.localStorage['anonymous']);
 });
 
 ;

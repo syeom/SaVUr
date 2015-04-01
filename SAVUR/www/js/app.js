@@ -53,6 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.home', {
+    cache: false,
     url: "/home",
     views: {
       'menuContent': {
@@ -73,13 +74,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.profile', {
+    cache: false,
     url: "/profile",
     views: {
       'menuContent': {
         templateUrl: "templates/profile.html",
         controller: 'ProfileCtrl'
       }
-    }
+    },
   })
   
       .state('app.reportAssault', {

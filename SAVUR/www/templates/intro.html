@@ -33,16 +33,21 @@
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="text"  ng-model="user.vuid" required>
+                  <input type="number"  ng-model="user.vuid" required>
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">Phone Number</span>
+                  <input type="number"  ng-model="user.phone" required>
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Dorm/Address</span>
                   <input type="text"  ng-model="user.dorm" required>
                 </label>
-                 <label class="item">
+                <label class="item">
                      <button class="button button-block button-positive" type="submit">Start</button>
-                  </label>
+                </label>
                    <a href="#" class="item" ui-sref="app.home">
                           <button class="button button-clear button-positive">Be Anonymous</button>
                   </a>
