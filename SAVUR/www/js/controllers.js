@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('HomeCtrl',function($state, $scope, $ionicPopup, $timeout) {
+.controller('HomeCtrl',function($state, $scope, $ionicPopup, $timeout, $cordovaGeolocation) {
 
 if (window.localStorage['profileName'] == null && window.localStorage['profileName2'] == null){
   $state.go('app.intro');
@@ -67,11 +67,6 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
     profilePhone = 'unknown';
   } 
 
-  // this has to be dynamic
-  GPSlang = 40.035110;
-  GPSlong = -75.337355;
-
-
  // A confirm dialog
  $scope.showConfirm = function() {
    var confirmPopup = $ionicPopup.confirm({
@@ -80,8 +75,13 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
    });
    confirmPopup.then(function(res) {
      if(res) {
-
-           $.ajax({
+          var posOptions = {timeout: 10000, enableHighAccuracy: false};
+              $cordovaGeolocation
+                .getCurrentPosition(posOptions)
+                .then(function (position) {
+                  var GPSlang  = position.coords.latitude
+                  var GPSlong = position.coords.longitude
+                   $.ajax({
             type: "POST",
             url: "https://mandrillapp.com/api/1.0/messages/send.json",
             data: {
@@ -103,11 +103,13 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
             
                var alertPopup = $ionicPopup.alert({
                  title: 'SAVUR',
-                 template: 'Public Safety has been alerted. They will contact you very shortly'
+                 template: 'Public Safety has been alerted. They will contact you very shortly ' + GPSlang + " " + GPSlong
                });
                alertPopup.then(function(res) {
                });
-             
+                }, function(err) {
+                  console.log("Could not get lat and long");// error
+           });
              console.log(response); 
            });
 

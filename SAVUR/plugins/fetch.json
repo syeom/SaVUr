@@ -5,5 +5,11 @@
             "url": "https://github.com/jcjee/email-composer.git",
             "subdir": "."
         }
+    },
+    "org.apache.cordova.geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.geolocation"
+        }
     }
 }
