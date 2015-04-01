@@ -16,9 +16,11 @@
             <h3>Welcome to SaVUr</h3>
             <div id="logo"> <img src="img/icon.png" width="150px">
             </div>
-            <p><b>Sexual Assault Villanova University Resources</b></p>
-            <p>In the moments that matter, this app meets students where they are and could be the difference for someone who needs support.</p>
-             <p>No matter what a student chooses to do or not do, it is important that they are able to make an informed choice.</p>
+            <p><b>Sexual Assault <br>Villanova University Resources</b></p>
+            <div id="narrowcontent">
+              <p>In the moments that matter, this app meets students where they are and could be the difference for someone who needs support.</p>
+               <p>No matter what a student chooses to do or not do, it is important that they are able to make an informed choice.</p>
+            </div>
          </ion-slide>
 
         <ion-slide>
@@ -28,17 +30,17 @@
             <form ng-submit="register(user)" method="post">
                 <label class="item item-input">
                     <span class="input-label">Name</span>
-                    <input type="text"  ng-model="user.name" required>
+                    <input type="text"  ng-model="user.name" required >
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="number"  ng-model="user.vuid" required>
+                  <input type="tel"  ng-model="user.vuid" required pattern=".{8,8}">
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Phone Number</span>
-                  <input type="number"  ng-model="user.phone" required>
+                  <input type="tel"  ng-model="user.phone" required pattern=".{10,10}">
                 </label>
 
                 <label class="item item-input">
@@ -48,12 +50,15 @@
                 <label class="item">
                      <button class="button button-block button-positive" type="submit">Start</button>
                 </label>
+                <!-- User must enter credentials. they can choose to be anonymous within the app 
                    <a href="#" class="item" ui-sref="app.home">
                           <button class="button button-clear button-positive">Be Anonymous</button>
                   </a>
+                -->
+                <p> You can toggle Anonymous function within the profile </p>
              </form>
 
-
+             <p id="terms" ng-click="termconditionbody()"> Terms and Conditions </p>
         </ion-slide>
 
     </ion-slide-box>

@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
  
 })
 
-.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate, $ionicPopup) {
  
   // Called to navigate to the main app
   $scope.next = function() {
@@ -33,10 +33,22 @@ angular.module('starter.controllers', [])
   $scope.slideChanged = function(index) {
     $scope.slideIndex = index;
   };
+
+  $scope.termconditionbody = function() {
+    var alertPopup = $ionicPopup.alert({
+      cssClass:'',
+      title:"Terms and Conditions",
+     templateUrl: "templates/termcondition.html"
+   });
+  };
+
 })
 
-.controller('HomeCtrl',function($scope, $ionicPopup, $timeout) {
+.controller('HomeCtrl',function($state, $scope, $ionicPopup, $timeout) {
 
+if (window.localStorage['profileName'] == null && window.localStorage['profileName2'] == null){
+  $state.go('app.intro');
+}
   
   profileName = window.localStorage['profileName'] ;
   profileVUID =  window.localStorage['profileVUID'] ;
@@ -175,6 +187,12 @@ angular.module('starter.controllers', [])
   $scope.profilePhone = window.localStorage['profilePhone'] ;
   $scope.profileDorm =  window.localStorage['profileDorm'] ;
 
+  if ($scope.profileName == null && window.localStorage['profileName2'] != null){
+    $scope.profileName = window.localStorage['profileName2'];
+    $scope.profileVUID =  window.localStorage['profileVUID2'] ;
+    $scope.profilePhone = window.localStorage['profilePhone2'] ;
+    $scope.profileDorm =  window.localStorage['profileDorm2'] ;
+  }
   $scope.goedit = function(){
     $scope.showedit = true;
     $scope.showprofile = false;

@@ -3,11 +3,7 @@
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
-        <ion-scroll>
-
-          <h2 class="title"></h2>
-            <br><br>
-
+          <br>
              <ion-toggle ng-model="showanony.checked"
                     ng-change="AnonyChange()">
               Be Anonymous
@@ -34,12 +30,12 @@
 
                 <label class="item item-input">
                   <span class="input-label">VU-ID</span>
-                  <input type="number"  ng-model="user.vuid" required>
+                  <input type="tel"  ng-model="user.vuid" required pattern=".{8,8}">
                 </label>
 
                 <label class="item item-input">
                   <span class="input-label">Phone Number</span>
-                  <input type="number"  ng-model="user.phone" required>
+                  <input type="tel"  ng-model="user.phone" required pattern=".{10,10}">
                 </label>
 
                 <label class="item item-input">
@@ -47,12 +43,12 @@
                   <input type="text"  ng-model="user.dorm" required>
                 </label>
 
-                 <label class="item">
+          
                      <button class="button button-block button-positive" type="submit">Save</button>
-                  </label>
+                  
                   <button class="button button-block button-positive" ng-click="cancel()">Cancel</button>
              </form>
-        </ion-scroll>
+       
       </ion-content>
 </ion-view>
 
