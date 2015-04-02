@@ -1,5 +1,22 @@
 
+/***********************************************
+************************************************
+************** Developed by ******************** 
+******  Kevin S. Yeom , Dan ******
+******   Lucas, Jay ******
+************************************************
+***********************************************/
+
+//Development
 var PublicSafetyEmail = 'syeom@villanova.edu';
+var PublicSafetyPhone = '2014146008';
+
+
+//Production
+/*
+var PublicSafetyEmail = 'elisa.lopez@villanova.edu'; 
+var PublicSafetyPhone = '6109604582';
+*/
 
 angular.module('starter.controllers', [])
 
@@ -67,62 +84,60 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
     profilePhone = 'unknown';
   } 
 
- // A confirm dialog
- $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.confirm({
-     title: 'Alert',
-     template: 'Are you sure you want to alert the Public Safety? A message will be sent to the Public Safety with your profile information and your GPS location'
-   });
-   confirmPopup.then(function(res) {
-     if(res) {
-          var posOptions = {timeout: 10000, enableHighAccuracy: false};
-              $cordovaGeolocation
-                .getCurrentPosition(posOptions)
-                .then(function (position) {
-                  var GPSlang  = position.coords.latitude
-                  var GPSlong = position.coords.longitude
-                   $.ajax({
-            type: "POST",
-            url: "https://mandrillapp.com/api/1.0/messages/send.json",
-            data: {
-              'key': 'SSCZCrdD5D9q4IKd4P7b1g',
-              'message': {
-                'from_email': 'SAVUR@villanova.edu',
-                'to': [
-                    {
-                      'email': PublicSafetyEmail,
-                      'type': 'to'
-                    }
-                  ],
-                'autotext': 'true',
-                'subject': 'SaVUr Emergency Alert!! ',
-                'html': '<body><h1> Name: '+ profileName + '</h1><h2> Phone Number: '+ profilePhone + '</h2><h2> VUID: '+ profileVUID + '</h2><h2> Dorm : '+ profileDorm+'<h2> GPS : Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'</h2><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17"><p> Click to open in Google Maps </p></a><br><p> Please note that no phone number is provided. Either we can ask users for # or Officers has to look up the number using novaid</p></body>'
-              }
-            }
-           }).done(function(response) {
-            
-               var alertPopup = $ionicPopup.alert({
-                 title: 'SAVUR',
-                 template: 'Public Safety has been alerted. They will contact you very shortly ' + GPSlang + " " + GPSlong
-               });
-               alertPopup.then(function(res) {
-               });
-                }, function(err) {
-                  console.log("Could not get lat and long");// error
-           });
-             console.log(response); 
-           });
-
-
-
-
-     } else {
-       console.log('You are not sure');
-     }
-   });
- }; 
-
-  ;
+  // A confirm dialog
+  $scope.showConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Alert',
+      template: 'Are you sure you want to alert the Public Safety? A message will be sent to the Public Safety with your profile information and your GPS location'
+    });
+    confirmPopup.then(function(res) {
+      if(res) {
+            var posOptions = {timeout: 10000, enableHighAccuracy: false};
+                $cordovaGeolocation
+                  .getCurrentPosition(posOptions)
+                  .then(function (position) {
+                    var GPSlang  = position.coords.latitude
+                    var GPSlong = position.coords.longitude
+                    $.ajax({
+                      type: "POST",
+                      url: "https://mandrillapp.com/api/1.0/messages/send.json",
+                      data: {
+                        'key': 'SSCZCrdD5D9q4IKd4P7b1g',
+                        'message': {
+                          'from_email': 'SAVUR@villanova.edu',
+                          'to': [
+                              {
+                                'email': PublicSafetyEmail,
+                                'type': 'to'
+                              }
+                            ],
+                          'autotext': 'true',
+                          'subject': 'SaVUr Emergency Alert!! ',
+                          'html': '<body> Name: '+ profileName + '<br> Phone Number: '+ profilePhone + '<br> VUID: '+ profileVUID + '<br> Dorm : '+ profileDorm+'<br>Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'<br><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17">Click to open in Google Maps</a><br>Alert Sent on '+Date()+'</body>'
+                        }
+                      }
+                    }).done(function(response) {
+                         var alertPopup = $ionicPopup.alert({
+                           title: 'SAVUR',
+                           template: 'Public Safety has been alerted. They will contact you very shortly ' + GPSlang + " " + GPSlong
+                         });
+                         alertPopup.then(function(res) {
+                         });
+                        }, function(err) {
+                          // error
+                    })
+                      .fail(function() {
+                       // handle request failures
+                       console.log("ajax failed");
+                       alert("Alert Failed! ")
+                    });
+             });
+      // if pressed cancel
+      } else {
+        console.log('You are not sure');
+      }
+    });
+  }; 
 
  $scope.homebg = "img/v"+Math.floor((Math.random() * 5) + 1)+".jpg";
 
