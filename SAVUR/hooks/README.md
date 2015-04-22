@@ -1,3 +1,10 @@
+## from the original developers - syeom@villanova.edu  
+bugs or things recommended to fix / add
+1. form validation at intro broken - use angular
+2. allow users to add custom phone numbers to alert list
+3. allow user to toggle anonymous at home screen
+4. currently using "mandrillapp" to send email -> then email forwards a text using gmail filter.  maybe switch over to twilio to alert texts instead
+
 <!--
 #
 # Licensed to the Apache Software Foundation (ASF) under one
@@ -80,4 +87,5 @@ We highly recommend writting your hooks using Node.js so that they are
 cross-platform. Some good examples are shown here:
 
 [http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs/](http://devgirl.org/2013/11/12/three-hooks-your-cordovaphonegap-project-needs/)
+
 
