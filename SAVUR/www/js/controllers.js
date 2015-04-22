@@ -92,7 +92,7 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
     });
     confirmPopup.then(function(res) {
       if(res) {
-            var posOptions = {timeout: 10000, enableHighAccuracy: false};
+            var posOptions = {timeout: 10000, enableHighAccuracy: true};
                 $cordovaGeolocation
                   .getCurrentPosition(posOptions)
                   .then(function (position) {
@@ -113,7 +113,7 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
                             ],
                           'autotext': 'true',
                           'subject': 'SaVUr Emergency Alert!! ',
-                          'html': '<body> Name: '+ profileName + '<br> Phone Number: '+ profilePhone + '<br> VUID: '+ profileVUID + '<br> Dorm : '+ profileDorm+'<br>Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'<br><a href ="http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17">Click to open in Google Maps</a><br>Alert Sent on '+Date()+'</body>'
+                          'html': '<body> Name: '+ profileName + '<br> Phone Number: '+ profilePhone + '<br> VUID: '+ profileVUID + '<br> Dorm : '+ profileDorm+'<br>Longitute:'+ GPSlong+ ' Latitude: '+GPSlang +'<br>Alert Sent on '+Date()+'<br> GoogleMapLink: http://maps.google.com/maps?q='+GPSlang+','+GPSlong+'&ll='+GPSlang+','+GPSlong+'&z=17<br></body>'
                         }
                       }
                     }).done(function(response) {
