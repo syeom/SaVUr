@@ -5,79 +5,87 @@
 		</ion-nav-back-button>
 	</ion-nav-bar>
 	<ion-content>
+		<ion-scroll class="scroll" zooming="true" direction="y" >	
+			<!--Card For Villanova Health Services -->
+			<div class="card" style="text-align:center">
+			  <div class="item item-divider">
+			    Villanova Student Health Center 
+			  </div>
+			  <div class="item item-text-wrap">
+			   Villanova University<br>
+				Health Services Building<br>
+				3rd Floor<br>
+				800 Lancaster Avenue<br>
+				Villanova, PA 19085<br>
+			  </div>
+			  <div class="item item-divider">
+	   		 	<button  class="button">
+	  			Get GPS Directions
+				</button>
 
-		<!--Card For Villanova Health Services -->
-		<div class="card" style="text-align:center">
-		  <div class="item item-divider">
-		    Villanova Student Health Center 
-		  </div>
-		  <div class="item item-text-wrap">
-		   Villanova University<br>
-			Health Services Building<br>
-			3rd Floor<br>
-			800 Lancaster Avenue<br>
-			Villanova, PA 19085<br>
-		  </div>
-		  <div class="item item-divider">
-   		 	<button  class="button">
-  			Get GPS Directions
-			</button>
-
-			<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
-			
-			<button  class="button">
-  			Get Train Directions
-			</button>
-  		  </div>
-		</div>
-
-		<!--Card For Bryn Mawr Hospital -->
-		<div class="card" style="text-align:center">
-		  <div class="item item-divider">
-		    Bryn Mawr Hospital
-		  </div>
-		  <div class="item item-text-wrap">
-		    Bryn Mawr Hospital<br>
-		    130 S Bryn Mawr Ave<br>
-		    Bryn Mawr, PA 19010<br>
-		  </div>
-		  <div class="item item-divider">
-   		 	<button  class="button" >
-  			Get GPS Directions
-			</button>
-
-			<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
-	
-			<button  class="button">
-  			Get Train Directions
-			</button>
-  		  </div>
-		</div>
-
-		<div class="card" style="text-align:left">
-			<div class="item item-divider">
-		      Options To Consider
+				<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
+	  		  </div>
 			</div>
-			<div class="list">
-			  <div class="item item-button-right" >What to Expect
-			    <button class="button icon-right ion-chevron-right button-clear button-dark">
-			    </button>
-			 </div>
-			 <div class="item item-button-right">Bring Someone You Trust
-			    <button class="button icon-right ion-chevron-right button-clear button-dark">
-			    </button>
-			 </div>
-			 <div class="item item-button-right">Try Not to Shower
-			    <button class="button icon-right ion-chevron-right button-clear button-dark">
-			    </button>
-			 </div>
-			 <div class="item item-button-right">Bring a Change of Clothes
-			    <button class="button icon-right ion-chevron-right button-clear button-dark">
-			    </button>
-			 </div>
-		 </div>
 
-</div>
+			<!--Card For Bryn Mawr Hospital -->
+			<div class="card" style="text-align:center">
+			  <div class="item item-divider">
+			    Bryn Mawr Hospital
+			  </div>
+			  <div class="item item-text-wrap">
+			    Bryn Mawr Hospital<br>
+			    130 S Bryn Mawr Ave<br>
+			    Bryn Mawr, PA 19010<br>
+			  </div>
+			  <div class="item item-divider">
+	   		 	<button  class="button" >
+	  			Get GPS Directions
+				</button>
 
+				<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
+	  		  </div>
+			</div>
+
+			<div class="card">
+				<div class="item item-divider">
+			      <b>Options To Consider</b>
+				</div>
+				<br>
+				<div class="item item-divider">
+					<b>Bring Someone You Trust</b>
+				</div>
+				<div class="item item-text-wrap">
+					If you feel comfortable, bring someone you trust.  Bring a friend, family member, or university staff, like an RA
+				</div>
+				
+				<div class="item item-divider">
+					<b>Try not to Shower</b>
+				</div>
+				<div class="item item-text-wrap">
+					For a Sexual Assualt Forensic Exam, try not to shower, bathe, douche, wash your hands, brush your teeth, comb your hair,
+				use a toilet, eat/drink, smoke, chew gum, or change your clothes.  This may be difficult, but if you do any of the above you may destroy evidence that will be needed if you decide to report the crime to the police.
+				</div>
+				
+				<div class="item item-divider">
+					<b>Bring a Change of Clothes</b>
+				</div>
+				<div class="item item-text-wrap">
+					Please remember to bring a change of clothes.  Store any clothing, shoes and/or items worn at the time of the assault in a paper bag if you have already removed them.
+				</div>
+			</div>
+			<br><br>
+			<!-- <div class="card" style="text-align:left">
+				<div class="item item-divider">
+			      Options To Consider
+				</div>
+				<div class="list">
+				 <div class="item item-button-right">Before You Go
+				    <button class="button icon-right ion-chevron-right button-clear button-dark" ui-sref="app.BeforeYouGo">
+				    </button>
+				 </div>
+			 </div> -->
+
+	</div>
+		</ion-scroll>
 	</ion-content>
 </ion-view>
