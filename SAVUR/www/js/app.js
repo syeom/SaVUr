@@ -174,6 +174,15 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
     }
   })
 
+  .state('app.novawebsite', {
+    url: "/novawebsite",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/novawebsite.html",
+        controller: ''
+      }
+    }
+  })
   // if none of the above states are matched, use this as the fallback
   if (window.localStorage.getItem('persistent') == 'true' )
     $urlRouterProvider.otherwise('/app/home');

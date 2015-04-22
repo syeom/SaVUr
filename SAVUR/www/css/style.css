@@ -6,7 +6,7 @@ body {
   height: 100%;
 }
 .slider-slide {
-  padding-top: 80px;
+  padding-top: 40px;
   color: #000;
   background-color: #fff;
   text-align: center;
@@ -141,4 +141,10 @@ body {
 /*Also used in talk.html to center divider*/
  .dividerCenter{
     text-align: center;
+ 
+ }
+ #alertbutton{
+  color:#EA3232;
+  font-weight: bold;
+  font-size: 17px;
  }
