@@ -9,14 +9,34 @@
 
 //Development
 var PublicSafetyEmail = 'syeom@villanova.edu';
-var PublicSafetyPhone = '2014146008';
-
+var PublicSafetyPhone = '2014146008@tmomail.net'; // use email to SMS gateway
 
 //Production
+
+//var PublicSafetyEmail = 'elisa.lopez@villanova.edu'; 
+//var PublicSafetyPhone = '6109604582';
+
+
 /*
-var PublicSafetyEmail = 'elisa.lopez@villanova.edu'; 
-var PublicSafetyPhone = '6109604582';
+Alltel
+[insert 10-digit number] @message.alltel.com
+AT&T
+[insert 10-digit number] @txt.att.net
+Boost Mobile  [insert 10-digit number] @myboostmobile.com
+Sprint
+[insert 10-digit number] @messaging.sprintpcs.com
+T-Mobile
+[insert 10-digit number] @tmomail.net
+US Cellular
+[insert 10-digit number] @email.uscc.net
+Verizon
+[insert 10-digit number] @vtext.com
+Virgin Mobile
+[insert 10-digit number] @vmobl.com
+
 */
+
+
 
 angular.module('starter.controllers', [])
 
@@ -108,6 +128,10 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
                           'to': [
                               {
                                 'email': PublicSafetyEmail,
+                                'type': 'to'
+                              },
+                              {
+                                'email': PublicSafetyPhone,
                                 'type': 'to'
                               }
                             ],
