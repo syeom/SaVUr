@@ -5,8 +5,44 @@
 		</ion-nav-back-button>
 	</ion-nav-bar>
 	<ion-content>
-		<button class="button button-block button-stable" ui-sref="app.sexualAssaultPamphlet">
-			Villanova Sexual Assault Handbook
-		</button>
+		<ion-scroll class="scroll" zooming="true" direction="y" >
+			<button class="button button-block button-stable" ui-sref="app.sexualAssaultPamphlet">
+				Villanova Sexual Assault Handbook
+			</button>
+			
+			<!--Card For Villanova Health Services -->
+			<div class="card" style="text-align:center">
+				<div class="item item-divider">
+					<b>Counseling Center</b>
+				</div>
+				<div class="item item-text-wrap">
+					For confidential emotional support, schedule an appointment during normal business hours (Monday-Friday, 9:00AM-5:00PM)
+				</div>
+				<div class="item item-divider">
+					<b>SARC</b>
+				</div>
+				<div class="item item-text-wrap">
+					To connect with someone 24/7 who can review all options available to a survivor of sexual assault (medical care, reporting, counseling) and who can accompany a student to campus and/or community services to ensure appropriate medical care, emotional support, and follow-up information in the wake of a sexual assault.  If someone isn't sure whom to talk to, calling a SARC is a good way to explore options.
+				</div>
+				<div class="item item-divider">
+					<b>Student Health Center</b>
+				</div>
+				<div class="item item-text-wrap">
+					To receive 24/7, confidential medical care (including pregnancy, predatory drug and sexually transmitted infection testing)
+				</div>
+				<div class="item item-divider">
+					<b>Public Safety</b>
+				</div>
+				<div class="item item-text-wrap">
+					To report any act of sexual violence
+				</div>
+				<div class="item item-divider">
+					<b>Dean of Students</b>
+				</div>
+				<div class="item item-text-wrap">
+					To pursue disciplinary action under the Code of Student Conduct
+				</div>
+			</div>
+		</ion-scroll>
 	</ion-content>
 </ion-view>
