@@ -1,4 +1,3 @@
-SAVUR/ionic.project
 SAVUR/platforms/android/.gitignore
 SAVUR/platforms/android/.project
 SAVUR/platforms/android/AndroidManifest.xml
@@ -304,3 +303,4 @@ SAVUR/platforms/android/res/values/strings.xml
 SAVUR/platforms/android/res/xml/config.xml
 SAVUR/platforms/android/src/com/ionicframework/savur298243/MainActivity.java
 SAVUR/plugins/android.json
+SAVUR/platforms/android/assets/www/templates/map.html
