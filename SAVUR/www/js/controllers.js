@@ -182,6 +182,14 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
 })
 
 
+.controller('MedicalHelpCtrl',function($scope,$state) {
+	     $scope.getDirections = function(lat,lng){
+            window.localStorage['mapLat'] = lat;
+            window.localStorage['mapLong'] = lng;
+            $state.go('app.map');
+        };
+})
+
 .controller('MapCtrl', function($scope) {
         //alert("Hola");
            var myLatlng = new google.maps.LatLng(window.localStorage['mapLat'],window.localStorage['mapLong']);
@@ -198,14 +206,6 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
                 title: 'Bryn Mawr Hospital'
         });
        })
-
-.controller('MedicalHelpCtrl',function($scope,$state) {
-	     $scope.getDirections = function(lat,lng){
-            window.localStorage['mapLat'] = lat;
-            window.localStorage['mapLong'] = lng;
-        };
-        $state.go('app.map');
-})
 
 
 .controller('InformationCtrl',function($scope) {
