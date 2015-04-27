@@ -20,8 +20,9 @@
 				<a href="http://www1.villanova.edu/villanova/studentlife/health/center.html" >Health Services Site</a>
 			  </div>
 			  <div class="item item-divider">
-	   		 	<a  href="https://www.google.com/maps/@40.0349299,-75.3371433,19z" class="button">
-	  			Get GPS Directions
+			<!--   	 -->
+	   		 	<a class="button" ng-click="getDirections(40.034942,-75.337340);">
+	  			See On Map
 				</a>
 
 				<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
@@ -40,8 +41,12 @@
 			    <a href="http://www.mainlinehealth.org/brynmawr">Bryn Mawr Hospital Site</a>
 			  </div>
 			  <div class="item item-divider">
-	   		 	<a  href="https://www.google.com/maps/place/Bryn+Mawr+Hospital/@40.018826,-75.321154,17z/data=!3m1!4b1!4m2!3m1!1s0x89c6c00a613406af:0x96295a1b6fad12ba" class="button">
+	   		 	<!-- <a  href="https://www.google.com/maps/place/Bryn+Mawr+Hospital/@40.018826,-75.321154,17z/data=!3m1!4b1!4m2!3m1!1s0x89c6c00a613406af:0x96295a1b6fad12ba" class="button">
 	  			Get GPS Directions
+				</a> -->
+			<!-- 	 -->
+				<a class="button" ng-click="getDirections(40.018826,-75.321154);">
+	  			See On Map
 				</a>
 
 				<a href="tel:6102721000" class="button button-positive">Call Taxi</a>
@@ -86,8 +91,6 @@
 				    </button>
 				 </div>
 			 </div> -->
-
-	</div>
 		</ion-scroll>
 	</ion-content>
 </ion-view>

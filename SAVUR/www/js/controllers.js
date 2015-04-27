@@ -107,7 +107,7 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
   // A confirm dialog
   $scope.showConfirm = function() {
     var confirmPopup = $ionicPopup.confirm({
-      title: 'Alert',
+      title: '<b>Alert</b>',
       template: 'Are you sure you want to alert the Public Safety? A message will be sent to the Public Safety with your profile information and your GPS location'
     });
     confirmPopup.then(function(res) {
@@ -142,7 +142,7 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
                       }
                     }).done(function(response) {
                          var alertPopup = $ionicPopup.alert({
-                           title: 'SAVUR',
+                           title: '<b>SAVUR</b>',
                            template: 'Public Safety has been alerted. They will contact you very shortly ' + GPSlang + " " + GPSlong
                          });
                          alertPopup.then(function(res) {
@@ -153,9 +153,14 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
                       .fail(function() {
                        // handle request failures
                        console.log("ajax failed");
-                       alert("Alert Failed! ")
+                       alert("Alert Failed!");
                     });
-             });
+             },function(err) {
+                var alertPopup = $ionicPopup.alert({
+                           title: '<b>Error</b>',
+                           template: 'Please turn on location services to use this feature.'
+                         });
+              });
       // if pressed cancel
       } else {
         console.log('You are not sure');
@@ -176,9 +181,32 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
 	
 })
 
-.controller('MedicalHelpCtrl',function($scope) {
-	
+
+.controller('MapCtrl', function($scope) {
+        //alert("Hola");
+           var myLatlng = new google.maps.LatLng(window.localStorage['mapLat'],window.localStorage['mapLong']);
+           var mapOptions = {
+              center: myLatlng,
+              zoom: 16,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map"),
+                mapOptions);
+             var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Bryn Mawr Hospital'
+        });
+       })
+
+.controller('MedicalHelpCtrl',function($scope,$state) {
+	     $scope.getDirections = function(lat,lng){
+            window.localStorage['mapLat'] = lat;
+            window.localStorage['mapLong'] = lng;
+        };
+        $state.go('app.map');
 })
+
 
 .controller('InformationCtrl',function($scope) {
 	
@@ -203,6 +231,50 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
 .controller('SexualAssaultPamphletCtrl',function($scope, $ionicSlideBoxDelegate) {
     
 })
+
+      //   //Marker + infowindow + angularjs compiled ng-click
+      //   var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+      //   var compiled = $compile(contentString)($scope);
+
+      //   var infowindow = new google.maps.InfoWindow({
+      //     content: compiled[0]
+      //   });
+
+      //   var marker = new google.maps.Marker({
+      //     position: myLatlng,
+      //     map: map,
+      //     title: 'Uluru (Ayers Rock)'
+      //   });
+
+      //   google.maps.event.addListener(marker, 'click', function() {
+      //     infowindow.open(map,marker);
+      //   });
+
+      //   $scope.map = map;
+
+      // google.maps.event.addDomListener(window, 'load', initialize);
+      
+      // $scope.centerOnMe = function() {
+      //   if(!$scope.map) {
+      //     return;
+      //   }
+
+      //   $scope.loading = $ionicLoading.show({
+      //     content: 'Getting current location...',
+      //     showBackdrop: false
+      //   });
+
+      //   navigator.geolocation.getCurrentPosition(function(pos) {
+      //     $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      //     $scope.loading.hide();
+      //   }, function(error) {
+      //     alert('Unable to get location: ' + error.message);
+      //   });
+      // };
+      
+      // $scope.clickTest = function() {
+      //   alert('Example of infowindow with ng-click')
+      // };
 
 .controller('ProfileCtrl', function($scope){
 
@@ -286,8 +358,6 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
   $scope.showanony = { checked: anonytoggle };
   console.log("username: "+window.localStorage['profileName'] + " userVUID : "+ window.localStorage['profileVUID'] + " user phone: "+window.localStorage['profilePhone']+ " Dorm: "+ window.localStorage['profileDorm'] + " anonymousboolean: "+window.localStorage['anonymous']);
 });
-
-;
 
 
 

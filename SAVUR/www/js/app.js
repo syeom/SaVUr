@@ -104,6 +104,16 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
     }
   })
   
+   .state('app.map', {
+    url: "/map",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/map.html",
+        controller: 'MapCtrl'
+      }
+    }
+  })
+  
     .state('app.medicalHelp', {
     url: "/medicalHelp",
     views: {
