@@ -354,7 +354,6 @@ if (window.localStorage['profileName'] == null && window.localStorage['profileNa
     }
   };
   
-  
   $scope.showanony = { checked: anonytoggle };
   console.log("username: "+window.localStorage['profileName'] + " userVUID : "+ window.localStorage['profileVUID'] + " user phone: "+window.localStorage['profilePhone']+ " Dorm: "+ window.localStorage['profileDorm'] + " anonymousboolean: "+window.localStorage['anonymous']);
 });
