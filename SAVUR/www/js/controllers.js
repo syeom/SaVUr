@@ -8,13 +8,13 @@
 ***********************************************/
 
 //Development
-var PublicSafetyEmail = 'syeom@villanova.edu';
-var PublicSafetyPhone = '2014146008@tmomail.net'; // use email to SMS gateway
+//var PublicSafetyEmail = 'syeom@villanova.edu';
+//var PublicSafetyPhone = '2014146008@tmomail.net'; // use email to SMS gateway
 
 //Production
 
-//var PublicSafetyEmail = 'elisa.lopez@villanova.edu'; 
-//var PublicSafetyPhone = '6109604582';
+var PublicSafetyEmail = 'elisa.lopez@villanova.edu'; 
+var PublicSafetyPhone = '6109604582@txt.att.net';
 
 
 /*
