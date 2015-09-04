@@ -83,9 +83,9 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl',function($state, $scope, $ionicPopup, $timeout, $cordovaGeolocation) {
 
-if (window.localStorage['profileName'] == null && window.localStorage['profileName2'] == null){
-  $state.go('app.intro');
-}
+//if (window.localStorage['profileName'] == null && window.localStorage['profileName2'] == null){
+  //$state.go('app.intro');
+//}
   
   profileName = window.localStorage['profileName'] ;
   // profileVUID =  window.localStorage['profileVUID'] ;
